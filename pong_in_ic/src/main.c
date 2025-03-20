@@ -1,8 +1,9 @@
 #include "raylib.h"
 #include "stdio.h"
 
-const int WINDOW_WIDTH = 320;
-const int WINDOW_HEIGHT = 320;
+#define WINDOW_WIDTH 320
+#define WINDOW_HEIGHT 320
+
 const int BLOCK_SIZE = WINDOW_HEIGHT / 20;
 const float PADDLE_SPEED = 5;
 float ball_speed = 4.0f;
