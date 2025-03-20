@@ -20,8 +20,10 @@ int main() {
 
   struct Rectangle paddle_1 = {BLOCK_SIZE, WINDOW_HEIGHT / 2, BLOCK_SIZE,
                                BLOCK_SIZE * 2};
+
   struct Rectangle paddle_2 = {WINDOW_WIDTH - BLOCK_SIZE * 2, WINDOW_HEIGHT / 2,
                                BLOCK_SIZE, BLOCK_SIZE * 2};
+
   struct Rectangle ball = {WINDOW_WIDTH / 2 - BLOCK_SIZE / 2,
                            WINDOW_HEIGHT / 2 + BLOCK_SIZE / 2, BLOCK_SIZE,
                            BLOCK_SIZE};
@@ -51,6 +53,7 @@ int main() {
 
     printf("\n %f", ball_speed);
 
+    //Draw
     BeginDrawing();
     DrawRectangleRec(paddle_1, GREEN);
     DrawRectangleRec(paddle_2, GREEN);
