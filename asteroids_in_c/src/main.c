@@ -8,8 +8,8 @@
 void UpdateDrawFrame(void);
 void AddAsteroid(Vector2 position, Vector2 velocity, AsteroidSize size);
 
-const int screenWidth = 600;
-const int screenHeight = 600;
+#define screenWidth 600
+#define screenHeight 600
 const Vector2 screenSize = {screenWidth, screenHeight};
 #define NEARBLACK CLITERAL(Color){15, 15, 15, 255}
 
@@ -42,6 +42,7 @@ void UpdateDrawFrame(void) {
   }
 
   if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+    GetRandomValue(0, 3);
     AddAsteroid(GetMousePosition(), (Vector2){200, 0}, ASTEROID_SMALL);
   }
 

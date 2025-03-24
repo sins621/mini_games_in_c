@@ -23,5 +23,6 @@ void AsteroidUpdate(Asteroid *asteroid, float frametime) {
 }
 
 void AsteroidDraw(Asteroid asteroid) {
-  DrawPolyLines(asteroid.position, 3, 64, asteroid.rotation, WHITE);
+  DrawPolyLines(asteroid.position, 3, 16 * (int)(asteroid.size),
+                asteroid.rotation, WHITE);
 }
