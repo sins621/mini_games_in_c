@@ -1,8 +1,9 @@
 #include "raylib.h"
 #include "stdio.h"
 
-const int WINDOW_WIDTH = 320;
-const int WINDOW_HEIGHT = 320;
+#define WINDOW_WIDTH 320
+#define WINDOW_HEIGHT 320
+
 const int BLOCK_SIZE = WINDOW_HEIGHT / 20;
 const float PADDLE_SPEED = 5;
 float ball_speed = 4.0f;
@@ -17,12 +18,15 @@ int main() {
   SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
   InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Pong");
 
-  struct Rectangle paddle_1 = {BLOCK_SIZE, WINDOW_HEIGHT / 2, BLOCK_SIZE,
+  struct Rectangle paddle_1 = {BLOCK_SIZE, WINDOW_HEIGHT / 2.0f, BLOCK_SIZE,
+                               BLOCK_SIZE * 2.0f};
+
+  struct Rectangle paddle_2 = {WINDOW_WIDTH - BLOCK_SIZE * 2,
+                               WINDOW_HEIGHT / 2.0f, BLOCK_SIZE,
                                BLOCK_SIZE * 2};
-  struct Rectangle paddle_2 = {WINDOW_WIDTH - BLOCK_SIZE * 2, WINDOW_HEIGHT / 2,
-                               BLOCK_SIZE, BLOCK_SIZE * 2};
-  struct Rectangle ball = {WINDOW_WIDTH / 2 - BLOCK_SIZE / 2,
-                           WINDOW_HEIGHT / 2 + BLOCK_SIZE / 2, BLOCK_SIZE,
+
+  struct Rectangle ball = {WINDOW_WIDTH / 2.0f - BLOCK_SIZE / 2.0f,
+                           WINDOW_HEIGHT / 2.0f + BLOCK_SIZE / 2.0f, BLOCK_SIZE,
                            BLOCK_SIZE};
 
   SetTargetFPS(30);
@@ -50,6 +54,7 @@ int main() {
 
     printf("\n %f", ball_speed);
 
+    // Draw
     BeginDrawing();
     DrawRectangleRec(paddle_1, GREEN);
     DrawRectangleRec(paddle_2, GREEN);
@@ -69,6 +74,8 @@ int collidesWithPaddle1(struct Rectangle *ball, struct Rectangle *paddle_1) {
     if (ball->y > paddle_1->y - BLOCK_SIZE &&
         ball->y < paddle_1->y + BLOCK_SIZE * 2) {
       return 1;
+    } else {
+      return 0;
     }
   } else {
     return 0;
