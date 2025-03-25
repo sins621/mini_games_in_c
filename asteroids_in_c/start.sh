@@ -1,1 +1,2 @@
-make && clear && ./bin/Debug/asteroids_in_c && clear
+gcc -o ./debug/asteroids ./src/*.c -lraylib -lgdi32 -lwinmm && ./debug/asteroids
+

@@ -1,5 +1,5 @@
 CompileFlags:
   Add:
-    - "-I../include"
-    - "-L../lib"
+    - "-IC:/w64devkit/x86_64-w64-mingw32/include/"
+    - "-IC:/w64devkit/x86_64-w64-mingw32/lib/"
     - "-lraylib"
