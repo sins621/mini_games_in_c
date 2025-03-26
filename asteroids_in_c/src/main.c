@@ -4,20 +4,14 @@
 #include "stdio.h"
 
 #include "asteroid.h"
+#include "constants.h"
 
 void UpdateDrawFrame(void);
 void AddAsteroid(Vector2 position, AsteroidSize size);
 Vector2 GetNextAsteroidPosition(void);
 
-#define screenWidth 600
-#define screenHeight 600
-const Vector2 screenCenter = {(float)(screenWidth) / 2,
-                              (float)(screenHeight) / 2};
-#define NEARBLACK CLITERAL(Color){15, 15, 15, 255}
-
-#define MAX_ASTEROIDS 64
-#define ASTEROID_RANDOM_ANGLE 20 * DEG2RAD
-#define ASTEROID_DELAY 0.75f
+const Vector2 screenCenter = {(float)(SCREEN_WIDTH) / 2,
+                              (float)(SCREEN_HEIGHT) / 2};
 
 static AsteroidSize _sizes[] = {ASTEROID_SMALL, ASTEROID_MEDIUM,
                                 ASTEROID_LARGE};
@@ -35,7 +29,7 @@ Vector2 line1[2] = {0};
 
 int main() {
   SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
-  InitWindow(screenWidth, screenHeight, "Asteroids");
+  InitWindow(SCREEN_WIDTH, SCREEN_WIDTH, "Asteroids");
 
   SetTargetFPS(60);
 
@@ -100,7 +94,7 @@ void UpdateDrawFrame(void) {
   }
 
   if (_showDebugMenu) {
-    Rectangle r = {10, screenHeight - 40, 20, 20};
+    Rectangle r = {10, SCREEN_HEIGHT - 40, 20, 20};
     GuiCheckBox(r, "Toggle Asteroid Count", &_showAsteroidCount);
 
     r.y -= 25;
@@ -154,15 +148,15 @@ Vector2 GetNextAsteroidPosition(void) {
   if (GetRandomValue(0, 1)) {
     if (GetRandomValue(0, 1)) {
     } else {
-      result.y = screenHeight + padding;
+      result.y = SCREEN_HEIGHT + padding;
     }
-    result.x = GetRandomValue(-padding, screenWidth + padding);
+    result.x = GetRandomValue(-padding, SCREEN_WIDTH + padding);
   } else {
     if (GetRandomValue(0, 1)) {
     } else {
-      result.x = screenWidth + padding;
+      result.x = SCREEN_WIDTH + padding;
     }
-    result.y = GetRandomValue(-padding, screenHeight + padding);
+    result.y = GetRandomValue(-padding, SCREEN_HEIGHT + padding);
   }
 
   return result;
