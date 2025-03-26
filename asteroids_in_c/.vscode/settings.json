@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "asteroid.h": "c",
+        "constants.h": "c"
+    }
+}

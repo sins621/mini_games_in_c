@@ -1,0 +1,11 @@
+#ifndef CONSTANTS_H_
+#define CONSTANTS_H_
+
+#define SCREEN_WIDTH 600
+#define SCREEN_HEIGHT 600
+#define NEARBLACK CLITERAL(Color){15, 15, 15, 255}
+#define MAX_ASTEROIDS 64
+#define ASTEROID_RANDOM_ANGLE 20 * DEG2RAD
+#define ASTEROID_DELAY 0.75f
+
+#endif
